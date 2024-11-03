@@ -13,23 +13,64 @@
     </header>
 
     <main>
+        <!-- Positive Quote Section -->
         <section id="quote-section">
             <button onclick="showQuote()">Get a Positive Quote</button>
             <p id="quote-display">Click the button for some positivity!</p>
         </section>
 
+        <!-- Booking Section -->
         <section id="booking-section">
             <h2>Book a Session</h2>
             <p>Select your preferred mental health professional and book a time.</p>
-            <!-- Booking form or options will go here -->
-        </section>
 
-        <section id="chat-section">
-            <h2>Chatbox</h2>
-            <p>Have any questions? Reach out to us here.</p>
-            <!-- Chatbox implementation will go here -->
+            <!-- Form for providers to add availability -->
+            <form id="provider-form">
+                <h3>Provider Registration</h3>
+                <label for="provider-name">Name:</label>
+                <input type="text" id="provider-name" required>
+
+                <label for="provider-type">Type:</label>
+                <select id="provider-type" required>
+                    <option value="Therapist">Therapist</option>
+                    <option value="Psychologist">Psychologist</option>
+                    <option value="Spiritual Healer">Spiritual Healer</option>
+                </select>
+
+                <label for="provider-availability">Availability:</label>
+                <input type="text" id="provider-availability" placeholder="e.g., Mondays 10-3pm" required>
+
+                <label for="provider-rate">Rate:</label>
+                <input type="text" id="provider-rate" placeholder="e.g., $50/hr" required>
+
+                <label for="provider-qualification">Qualification:</label>
+                <input type="text" id="provider-qualification" required>
+
+                <button type="button" onclick="addProvider()">Add Provider</button>
+            </form>
+
+            <!-- Display available providers for booking -->
+            <div id="providers-list">
+                <h3>Available Providers</h3>
+                <ul id="provider-display">
+                    <!-- Providers will be dynamically added here -->
+                </ul>
+            </div>
         </section>
     </main>
+
+    <!-- Floating Chatbox Section -->
+    <div id="chat-widget">
+        <button id="chat-toggle" onclick="toggleChat()">Chat with us</button>
+        <div id="chat-box">
+            <h2>Chatbox</h2>
+            <div id="chat-display"></div>
+            <form id="chat-form" onsubmit="sendMessage(event)">
+                <input type="text" id="chat-input" placeholder="Type your message..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
